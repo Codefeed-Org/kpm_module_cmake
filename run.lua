@@ -57,8 +57,8 @@ end
 
 function cmakeBuild(options)
   script, name = open_temp_script()
-  script:write("mkdir " .. options["builddir"] .. "\n")
-  script:write("pushd " .. options["builddir"] .. "\n")
+  script:write("mkdir \"" .. options["builddir"] .. "\"\n")
+  script:write("pushd \"" .. options["builddir"] .. "\"\n")
   script:write("cmake " .. options["source"] .. " " .. "-DCMAKE_BUILD_TYPE=" .. options["buildtype"] .. " " .. options["parameters"] .. "\n")
   script:write("cmake --build . --config " .. options["buildtype"] .. "\n")
   script:write("popd")
